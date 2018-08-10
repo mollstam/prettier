@@ -46,7 +46,7 @@
     "minimatch": "3.0.4",
     "minimist": "1.2.0",
     "normalize-path": "3.0.0",
-    "parse5": "5.0.0",
+    "parse5": "file:_parse5/packages/parse5",
     "parse5-htmlparser2-tree-adapter": "5.0.0",
     "postcss-less": "1.1.5",
     "postcss-media-query-parser": "0.2.3",
@@ -110,6 +110,7 @@
     "lint-docs": "prettylint {.,docs,website,website/blog}/*.md",
     "build": "node ./scripts/build/build.js",
     "build-docs": "node ./scripts/build-docs.js",
-    "check-deps": "node ./scripts/check-deps.js"
+    "check-deps": "node ./scripts/check-deps.js",
+    "postinstall": "mkdir _parse5; cd _parse5; git init; git remote add -f origin https://github.com/mollstam/parse5.git; git config core.sparseCheckout true; echo \"packages/parse5\" >> .git/info/sparse-checkout; git pull --depth=1 origin attr-name-dont-lowercase; cd ..; npm i ./_parse5/packages/parse5/"
   }
 }
